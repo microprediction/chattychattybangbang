@@ -114,7 +114,7 @@ def castigate_until_numeric_dict_with_known_keys_iteratively(valid_keys:STR_KEYS
             missing_keys = [ ky for ky in next_keys if not ky in scores_dict ]
             print(f'  ...{len(keys_left)} keys remaining to be scored')
         else:
-            missing_keys = list(keys_left)
+            missing_keys = list(next_keys)
             print('   ... failed to get a response after retries for '+','.join(next_keys))
         keys_left = list(missing_keys) + list(keys_left)
 
