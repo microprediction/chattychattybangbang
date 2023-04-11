@@ -113,6 +113,8 @@ def castigate_until_numeric_dict_with_known_keys_iteratively(valid_keys:STR_KEYS
     while keys_left:
         next_keys, keys_left = _choose_next_items(keys_left, count=n_batch, randomize=randomize)
         appended_question = question + ','.join([str(k).lower() for k in next_keys ])
+        if echo:
+            print('Question :' + appended_question)
         scores_dict = castigate_until_numeric_dict_with_known_keys(valid_keys=next_keys,
                                                          question=appended_question,
                                                          castigator=castigator,
@@ -122,9 +124,9 @@ def castigate_until_numeric_dict_with_known_keys_iteratively(valid_keys:STR_KEYS
         if scores_dict is not None:
             all_scores.update(scores_dict)
             if case_insensitive:
-                missing_keys = [ky for ky in next_keys if ky not in scores_dict]
+                missing_keys = [ky for ky in next_keys if not is_in(ky,scores_dict)]
             else:
-                missing_keys = [ ky for ky in next_keys if not is_in(ky,scores_dict) ]
+                missing_keys = [ ky for ky in next_keys if ky not in scores_dict ]
             print(f'  scored '+','.join(list(scores_dict.keys())))
 
         else:
