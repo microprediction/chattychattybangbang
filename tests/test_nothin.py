@@ -1,3 +1,3 @@
 
-def nothing():
+def test_nothing():
     assert True
