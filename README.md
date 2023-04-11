@@ -6,6 +6,10 @@ Utilities for using chatgpt more reliably
 
     pip install chattychattybangbang
     
+### Set key
+
+    import os
+    os.environ['OPEN_AI_KEY'] = 'getakeyfromopenaisite' 
     
 ### Example
 Asks ChatGPT a question, then calls it again to QA the answer. 
@@ -22,6 +26,8 @@ Asks ChatGPT a question, then calls it again to QA the answer.
     print(d)
     
     {'AAPL': 'white', 'MSFT': 'red', 'GOOGL': 'green'}
+
+See [examples](https://github.com/microprediction/chattychattybangbang/tree/main/examples) for presidential poetry appreciation, etc. 
 
 ### Article
 See [Reliably getting answers out of chatgpt](https://medium.com/@mike.roweprediger/reliably-getting-answers-out-of-chatgpt-by-forcing-it-to-qa-itself-feb1f56782b9) on medium. Thanks to Michael Rowe. 
