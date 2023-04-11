@@ -8,7 +8,7 @@ Utilities for using chatgpt more reliably
     
     
 ### Example
-Asks ChatGPT for a dictionary, then asks it to check that values in the dict returned are in fact colors
+Asks ChatGPT a question, then calls it again to QA the answer. 
 
 
     from chattychattybangbang.castigateuntilvaluesare import castigate_until_values_are
