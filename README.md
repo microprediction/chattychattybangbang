@@ -1,5 +1,5 @@
 # chattychattybangbang
-Utilities for using chatgpt and maybe other LLMs
+Utilities for using chatgpt more reliably
 
 
 ### Install
