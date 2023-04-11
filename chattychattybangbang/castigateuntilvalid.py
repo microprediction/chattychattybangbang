@@ -112,10 +112,11 @@ def castigate_until_numeric_dict_with_known_keys_iteratively(valid_keys:STR_KEYS
         if scores_dict is not None:
             all_scores.update(scores_dict)
             missing_keys = [ ky for ky in next_keys if not ky in scores_dict ]
-            keys_left = list(missing_keys) + list(keys_left)
             print(f'  ...{len(keys_left)} keys remaining to be scored')
         else:
-            print('   ... could not castigate a response this time')
+            missing_keys = list(keys_left)
+            print('   ... failed to get a response after retries for '+','.join(next_keys))
+        keys_left = list(missing_keys) + list(keys_left)
 
     if reverse is not None:
         all_scores = _sort_dict_descending(all_scores, reverse=reverse)
