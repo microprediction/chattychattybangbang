@@ -1,5 +1,5 @@
 from chattychattybangbang.openaicredentials import set_credentials
-from chattychattybangbang.validators import default_validator
+from chattychattybangbang.validators import default_validator, validate_numeric_dict
 from chattychattybangbang.jsonutil import json_or_none
 from chattychattybangbang.castigators import default_castigator
 from chattychattybangbang.openutil import ask_gpt
@@ -8,7 +8,14 @@ from chattychattybangbang.openutil import ask_gpt
 DEFAULT_MAX_RETRIES = 3
 
 
-def castigate_until_valid(question:str, validator=None, castigator=None, max_retries=DEFAULT_MAX_RETRIES):
+def castigate_until_valid(question:str, validator=None, castigator=None, max_retries:int=DEFAULT_MAX_RETRIES):
+    """
+    :param question:
+    :param validator:     Function taking dict --> bool
+    :param castigator:    Function taking castigator(question, response) --> str
+    :param max_retries:
+    :return:
+    """
     if validator is None:
         validator = default_validator
     if castigator is None:
@@ -31,6 +38,9 @@ def castigate_until_valid(question:str, validator=None, castigator=None, max_ret
     else:
         return parsed_response
 
+
+def castigate_until_numeric_dict(question:str, castigator=None, max_retries=DEFAULT_MAX_RETRIES):
+    return castigate_until_valid(question=question, validator=validate_numeric_dict, max_retries=max_retries)
 
 
 if __name__=='__main__':

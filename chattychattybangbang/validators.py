@@ -3,8 +3,18 @@ from hypothesis.strategies import dictionaries, text
 
 # Example validators
 
+
 def validate_text_dict(parsed_response:dict):
-    return True
+    return isinstance(parsed_response,dict)
+
+
+def validate_numeric_dict(parsed_response:dict):
+    try:
+        for k,v in parsed_response.items():
+            v_float = float(v)
+        return True
+    except Exception as e:
+        return False
 
 
 def validate_yes_or_no(parsed_response:dict):
