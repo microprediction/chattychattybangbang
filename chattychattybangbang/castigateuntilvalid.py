@@ -70,6 +70,7 @@ def castigate_until_numeric_dict_with_known_keys(valid_keys: STR_KEYS_TYPE,
 def castigate_until_numeric_dict_with_known_keys_iteratively(valid_keys:STR_KEYS_TYPE,
                                                              question:str, castigator=None,
                                                              n_batch=5, randomize=False,
+                                                             max_retries = 5,
                                                              case_insensitive=True,
                                                              reverse=None,
                                                              skip=True) -> dict :
@@ -109,12 +110,15 @@ def castigate_until_numeric_dict_with_known_keys_iteratively(valid_keys:STR_KEYS
         scores_dict = castigate_until_numeric_dict_with_known_keys(valid_keys=valid_keys,
                                                          question=appended_question,
                                                          castigator=castigator,
-                                                         case_insensitive=case_insensitive
+                                                         case_insensitive=case_insensitive,
+                                                                   max_retries=max_retries
                                                          )
         if scores_dict is not None:
             all_scores.update(scores_dict)
-            missing_keys = [ ky for ky in next_keys if not ky in scores_dict ]
+            missing_keys = [ ky for ky in next_keys if ky not in scores_dict ]
+            print(f'  scored '+','.join(list(scores_dict.keys())))
             print(f'  ...{len(keys_left)} keys remaining to be scored')
+
         else:
             print('   ... failed to get a response after retries for ' + ','.join(next_keys))
             if skip:
@@ -124,7 +128,7 @@ def castigate_until_numeric_dict_with_known_keys_iteratively(valid_keys:STR_KEYS
                 missing_keys = []
                 print('       ... giving up on them')
             else:
-                missing_keys = list(next_keys)
+                missing_keys = [k for k in next_keys]
         keys_left = list(missing_keys) + list(keys_left)
 
     if reverse is not None:
