@@ -1,5 +1,6 @@
 from hypothesis import given
 from hypothesis.strategies import dictionaries, text
+from typing import Dict, List, Union, KeysView, Any
 
 # Example validators
 
@@ -12,6 +13,32 @@ def validate_numeric_dict(parsed_response:dict):
     try:
         for k,v in parsed_response.items():
             v_float = float(v)
+        return True
+    except Exception as e:
+        return False
+
+
+STR_KEYS_TYPE = Union[List[str], Dict[str, Any], KeysView[str]]
+
+
+def validate_numeric_dict_with_known_keys(parsed_response: dict,
+                                          valid_keys:STR_KEYS_TYPE,
+                                          case_insensitive=True):
+
+    def _is_in(s: str, string_set: set) -> bool:
+        # Case-insensitive membership
+        s_lower = s.lower()
+        lower_set = {item.lower() for item in list(string_set)}
+        return s_lower in lower_set
+
+    try:
+        for k, v in parsed_response.items():
+            v_float = float(v)
+            if case_insensitive:
+                assert _is_in(k, valid_keys)
+            else:
+                assert k in valid_keys
+
         return True
     except Exception as e:
         return False
