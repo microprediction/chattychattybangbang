@@ -1,4 +1,4 @@
-# Pompousity Scores for Great Thinkers 
+# Pomposity Scores for Great Thinkers 
 According to ChatGPT
 
 
