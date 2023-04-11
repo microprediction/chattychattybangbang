@@ -1,27 +1,31 @@
-# Most Pompous Great Thinkers 
+# Pompousity Scores for Great Thinkers 
 According to ChatGPT
 
-- **jean-paul sartre** (Pompousness Score: 10)
-- **noam chomsky** (Pompousness Score: 10)
-- **michel foucault** (Pompousness Score: 10)
-- **john maynard keynes** (Pompousness Score: 9)
-- **simone de beauvoir** (Pompousness Score: 9)
-- **john stuart mill** (Pompousness Score: 9)
-- **sigmund freud** (Pompousness Score: 8)
-- **friedrich nietzsche** (Pompousness Score: 8)
-- **marx** (Pompousness Score: 8)
-- **freud** (Pompousness Score: 8)
-- **emile durkheim** (Pompousness Score: 7)
-- **immanuel kant** (Pompousness Score: 7)
-- **jung** (Pompousness Score: 6)
-- **plato** (Pompousness Score: 6)
-- **aristotle** (Pompousness Score: 5)
-- **socrates** (Pompousness Score: 4)
-- **rené descartes** (Pompousness Score: 3)
-- **thomas hobbes** (Pompousness Score: 2)
-- **john locke** (Pompousness Score: 1)
 
-To reproduce you can use this package's functionality: 
+| Thinker            | Pompousness Score |
+|--------------------|--------------------|
+| jean-paul sartre   | 10                 |
+| noam chomsky       | 10                 |
+| michel foucault    | 10                 |
+| john maynard keynes| 9                  |
+| simone de beauvoir | 9                  |
+| john stuart mill   | 9                  |
+| sigmund freud      | 8                  |
+| friedrich nietzsche| 8                  |
+| marx               | 8                  |
+| freud              | 8                  |
+| emile durkheim     | 7                  |
+| immanuel kant      | 7                  |
+| jung               | 6                  |
+| plato              | 6                  |
+| rené descartes     | 5                  |  
+| aristotle          | 5                  |
+| socrates           | 4                  |
+| thomas hobbes      | 2                  |
+| john locke         | 1                  |
+
+
+Results are highly stochastic. Just having fun here. For this you can do the following: 
 
     from chattychattybangbang.castigateuntilvalid import castigate_until_numeric_dict
     from pprint import pprint
