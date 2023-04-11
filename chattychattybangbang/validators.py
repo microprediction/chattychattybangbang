@@ -36,7 +36,7 @@ def validate_numeric_dict_with_known_keys(parsed_response: dict,
         for k, v in parsed_response.items():
             v_float = float(v)
             if case_insensitive:
-                assert _is_in(k, valid_keys)
+                assert is_in(k, valid_keys)
             else:
                 assert k in valid_keys
 

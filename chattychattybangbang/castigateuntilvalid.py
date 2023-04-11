@@ -113,7 +113,7 @@ def castigate_until_numeric_dict_with_known_keys_iteratively(valid_keys:STR_KEYS
     while keys_left:
         next_keys, keys_left = _choose_next_items(keys_left, count=n_batch, randomize=randomize)
         appended_question = question + ','.join([str(k).lower() for k in next_keys ])
-        scores_dict = castigate_until_numeric_dict_with_known_keys(valid_keys=valid_keys,
+        scores_dict = castigate_until_numeric_dict_with_known_keys(valid_keys=next_keys,
                                                          question=appended_question,
                                                          castigator=castigator,
                                                          case_insensitive=case_insensitive,
