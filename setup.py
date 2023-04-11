@@ -22,7 +22,7 @@ setup(
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
     ],
-    packages=["chattychattybangbang","chattychattybangbang.responsedata","chattychattybangbang.marketdata"],
+    packages=["chattychattybangbang"],
     test_suite='pytest',
     tests_require=['pytest'],
     include_package_data=True,
