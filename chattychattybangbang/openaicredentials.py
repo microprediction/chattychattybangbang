@@ -4,7 +4,7 @@ import openai
 
 def set_credentials():
     try:
-        from privatecredentials import API_KEY  # noqa: E402
+        from chattychattybangbang.privatecredentials import API_KEY  # noqa: E402
         openai.api_key = API_KEY
     except ImportError:
         api_key = os.environ.get('OPEN_AI_KEY')
