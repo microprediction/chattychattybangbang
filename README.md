@@ -8,6 +8,8 @@ Utilities for using chatgpt and maybe other LLMs
     
     
 ### Example
+Asks ChatGPT for a dictionary, then asks it to check that values in the dict returned are in fact colors
+
 
     from chattychattybangbang.castigateuntilvaluesare import castigate_until_values_are
     question = """
