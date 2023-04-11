@@ -2,14 +2,18 @@ from chattychattybangbang.castigateuntilvalid import castigate_until_valid
 from chattychattybangbang.validators import validate_yes_or_no
 
 DEFAULT_MAX_RETRIES = 3
+DEFAULT_N_CHECK = 5
 
 
-def values_isa_validator(parsed_response: dict, value_description:str, max_retries=DEFAULT_MAX_RETRIES):
+def values_isa_validator(parsed_response: dict, value_description:str,
+                         max_retries=DEFAULT_MAX_RETRIES, n_check=DEFAULT_N_CHECK):
     """ For each value in a dictionary, ask ChatGPT if it meets value_description
         Short-circuit
     :param value_description:  'is a president'
+    :param n_check:            How many to check
     :return:
     """
+    n_checked = 0
     for k, v in parsed_response.items():
         validation_question = 'Please answer the following as a yes or no question only, returning a single word please. Is ' + str(
             v) + ' ' + value_description + ' ?'
@@ -22,10 +26,16 @@ def values_isa_validator(parsed_response: dict, value_description:str, max_retri
             yes_or_no_values = list(yes_or_no_dict.values())[0]
             if not isinstance(yes_or_no_values, str) or (('no' in yes_or_no_values.lower()) and ('yes' not in yes_or_no_values.lower())):
                 return False
+            else:
+                n_checked+=1
+                if n_checked>=n_check:
+                    break
     return True
 
 
-def castigate_until_values_are(question:str, value_description:str, castigator=None, max_retries=DEFAULT_MAX_RETRIES):
+def castigate_until_values_are(question:str, value_description:str,
+                               castigator=None, max_retries=DEFAULT_MAX_RETRIES,
+                               n_check=5):
     """ Retry until we get a dict whose values are 'value_description'
     :param question:   'Please provide a dictionary length 3 where
     :param value_description:  'is a color'
@@ -34,7 +44,9 @@ def castigate_until_values_are(question:str, value_description:str, castigator=N
     :return:
     """
     def _validator(parsed_response):
-         return values_isa_validator(parsed_response=parsed_response, value_description=value_description)
+         return values_isa_validator(parsed_response=parsed_response,
+                                     value_description=value_description,
+                                     n_check=n_check)
 
     return castigate_until_valid(question=question,
                                 validator=_validator,
