@@ -21,15 +21,16 @@ def validate_numeric_dict(parsed_response:dict):
 STR_KEYS_TYPE = Union[List[str], Dict[str, Any], KeysView[str]]
 
 
+def is_in(s: str, string_set: set) -> bool:
+    # Case-insensitive membership
+    s_lower = s.lower()
+    lower_set = {item.lower() for item in list(string_set)}
+    return s_lower in lower_set
+
+
 def validate_numeric_dict_with_known_keys(parsed_response: dict,
                                           valid_keys:STR_KEYS_TYPE,
                                           case_insensitive=True):
-
-    def _is_in(s: str, string_set: set) -> bool:
-        # Case-insensitive membership
-        s_lower = s.lower()
-        lower_set = {item.lower() for item in list(string_set)}
-        return s_lower in lower_set
 
     try:
         for k, v in parsed_response.items():

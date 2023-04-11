@@ -1,6 +1,6 @@
 from chattychattybangbang.openaicredentials import set_credentials
 from chattychattybangbang.validators import default_validator, validate_numeric_dict
-from chattychattybangbang.validators import validate_numeric_dict_with_known_keys, STR_KEYS_TYPE
+from chattychattybangbang.validators import validate_numeric_dict_with_known_keys, STR_KEYS_TYPE, is_in
 from chattychattybangbang.jsonutil import json_or_none
 from chattychattybangbang.castigators import default_castigator
 from chattychattybangbang.openutil import ask_gpt
@@ -9,7 +9,6 @@ from typing import List
 from pprint import pprint
 
 DEFAULT_MAX_RETRIES = 3
-
 
 
 def castigate_until_valid(question:str, validator=None, castigator=None, max_retries:int=DEFAULT_MAX_RETRIES):
@@ -115,7 +114,10 @@ def castigate_until_numeric_dict_with_known_keys_iteratively(valid_keys:STR_KEYS
                                                          )
         if scores_dict is not None:
             all_scores.update(scores_dict)
-            missing_keys = [ ky for ky in next_keys if ky not in scores_dict ]
+            if case_insensitive:
+                missing_keys = [ky for ky in next_keys if ky not in scores_dict]
+            else:
+                missing_keys = [ ky for ky in next_keys if not is_in(ky,scores_dict) ]
             print(f'  scored '+','.join(list(scores_dict.keys())))
 
         else:
