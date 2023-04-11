@@ -119,7 +119,8 @@ def castigate_until_numeric_dict_with_known_keys_iteratively(valid_keys:STR_KEYS
             print('   ... failed to get a response after retries for ' + ','.join(next_keys))
             if skip:
                 import numpy as np
-                scores_dict = dict([ (k,np.nan) for k in scores_dict ])
+                scores_dict = dict([ (k,np.nan) for k in next_keys ])
+                all_scores.update(scores_dict)
                 missing_keys = []
                 print('       ... giving up on them')
             else:
