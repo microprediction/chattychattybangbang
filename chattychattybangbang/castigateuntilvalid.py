@@ -11,12 +11,14 @@ from pprint import pprint
 DEFAULT_MAX_RETRIES = 3
 
 
-def castigate_until_valid(question:str, validator=None, castigator=None, max_retries:int=DEFAULT_MAX_RETRIES):
+def castigate_until_valid(question:str, validator=None, castigator=None,
+                          max_retries:int=DEFAULT_MAX_RETRIES, echo=False):
     """
     :param question:
     :param validator:     Function taking dict --> bool
     :param castigator:    Function taking castigator(question, response) --> str
     :param max_retries:
+    :param echo:          Print the responses to stdout
     :return:
     """
     if validator is None:
@@ -33,6 +35,8 @@ def castigate_until_valid(question:str, validator=None, castigator=None, max_ret
         if parsed_response and validator(parsed_response):
             break
 
+        if echo:
+            print(response)
         question = castigator(question, response)
         retries += 1
 
@@ -42,15 +46,16 @@ def castigate_until_valid(question:str, validator=None, castigator=None, max_ret
         return parsed_response
 
 
-def castigate_until_numeric_dict(question:str, castigator=None, max_retries=DEFAULT_MAX_RETRIES):
-    return castigate_until_valid(question=question, validator=validate_numeric_dict, max_retries=max_retries)
+def castigate_until_numeric_dict(question:str, castigator=None, max_retries=DEFAULT_MAX_RETRIES, echo=False):
+    return castigate_until_valid(question=question, validator=validate_numeric_dict, max_retries=max_retries, echo=echo)
 
 
 def castigate_until_numeric_dict_with_known_keys(valid_keys: STR_KEYS_TYPE,
                                                  question:str,
                                                  castigator=None,
                                                  max_retries=DEFAULT_MAX_RETRIES,
-                                                 case_insensitive=True
+                                                 case_insensitive=True,
+                                                 echo = False
                                                  ):
     """
     :param valid_keys:
@@ -63,7 +68,9 @@ def castigate_until_numeric_dict_with_known_keys(valid_keys: STR_KEYS_TYPE,
         return validate_numeric_dict_with_known_keys(parsed_response=parsed_response,
                                                      valid_keys=valid_keys,
                                                      case_insensitive=case_insensitive)
-    return castigate_until_valid(question=question, castigator=castigator, validator=_validator, max_retries=max_retries)
+    return castigate_until_valid(question=question, castigator=castigator,
+                                 validator=_validator, max_retries=max_retries,
+                                 echo=echo)
 
 
 def castigate_until_numeric_dict_with_known_keys_iteratively(valid_keys:STR_KEYS_TYPE,
@@ -72,7 +79,7 @@ def castigate_until_numeric_dict_with_known_keys_iteratively(valid_keys:STR_KEYS
                                                              max_retries = 5,
                                                              case_insensitive=True,
                                                              reverse=None,
-                                                             skip=True) -> dict :
+                                                             skip=True,echo=False) -> dict :
     """ Takes a list of valid_keys which are supposed to be assigned scores.
         Keeps iterating until all keys have been assigned numerical scores.
 
@@ -110,7 +117,7 @@ def castigate_until_numeric_dict_with_known_keys_iteratively(valid_keys:STR_KEYS
                                                          question=appended_question,
                                                          castigator=castigator,
                                                          case_insensitive=case_insensitive,
-                                                                   max_retries=max_retries
+                                                                   max_retries=max_retries, echo=echo
                                                          )
         if scores_dict is not None:
             all_scores.update(scores_dict)
