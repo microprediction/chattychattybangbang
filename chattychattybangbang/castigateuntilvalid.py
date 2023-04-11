@@ -27,6 +27,7 @@ def castigate_until_valid(question:str, validator=None, castigator=None,
         castigator = default_castigator
 
     retries = 0
+    failure_print_count = 5
 
     while retries < max_retries:
         response = ask_gpt(question)
@@ -35,8 +36,10 @@ def castigate_until_valid(question:str, validator=None, castigator=None,
         if parsed_response and validator(parsed_response):
             break
 
-        if echo:
+        if echo and failure_print_count>0:
+            print('      ... example of failed response')
             print(response)
+            failure_print_count -= 1
         question = castigator(question, response)
         retries += 1
 
@@ -110,11 +113,13 @@ def castigate_until_numeric_dict_with_known_keys_iteratively(valid_keys:STR_KEYS
 
     all_scores = dict()
     keys_left = [ k for k in list(valid_keys)]
+    printed_question = False
     while keys_left:
         next_keys, keys_left = _choose_next_items(keys_left, count=n_batch, randomize=randomize)
         appended_question = question + ','.join([str(k).lower() for k in next_keys ])
-        if echo:
+        if echo and not printed_question:
             print('Question :' + appended_question)
+            printed_question = True
         scores_dict = castigate_until_numeric_dict_with_known_keys(valid_keys=next_keys,
                                                          question=appended_question,
                                                          castigator=castigator,
@@ -127,7 +132,7 @@ def castigate_until_numeric_dict_with_known_keys_iteratively(valid_keys:STR_KEYS
                 missing_keys = [ky for ky in next_keys if not is_in(ky,scores_dict)]
             else:
                 missing_keys = [ ky for ky in next_keys if ky not in scores_dict ]
-            print(f'  scored '+','.join(list(scores_dict.keys())))
+            print(f'  ... successfully added scores for '+','.join(list(scores_dict.keys())))
 
         else:
             print('   ... failed to get a response after retries for ' + ','.join(next_keys))
