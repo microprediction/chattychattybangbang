@@ -240,7 +240,7 @@ For example, a user may create a prompt that asks the AI to review its own respo
 
 ### Certification in Prompt Engineering Post Engineering
 
-For those interested in mastering the use of programmatic post engineering prompting, a certification course is available through the ChittyChittyBangBang project. By completing this course, users can gain valuable knowledge and expertise in programmatic post engineering prompting techniques, as well as receive recognition for their skills in this emerging field. To learn more about the certification and enroll in the course, visit the following certificate](https://microprediction.github.io/chattychattybangbang/certificate) link. 
+For those interested in mastering the use of programmatic post engineering prompting, a certification course is available through the ChittyChittyBangBang project. By completing this course, users can gain valuable knowledge and expertise in programmatic post engineering prompting techniques, as well as receive recognition for their skills in this emerging field. To learn more about the certification and enroll in the course, visit the following [certificate](https://microprediction.github.io/chattychattybangbang/certificate) link. 
 
 ### Strategies for Effective Programmatic Prompting
 
