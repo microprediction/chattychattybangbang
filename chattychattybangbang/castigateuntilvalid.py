@@ -36,10 +36,15 @@ def castigate_until_valid(question:str, validator=None, castigator=None,
         if parsed_response and validator(parsed_response):
             break
 
+        # If fail, maybe print the question and response for debugging
         if echo and failure_print_count>0:
-            print('      ... example of failed response')
+            print('      ... example question: ')
+            print(question)
+            print('      ... example of failed response to it')
             print(response)
             failure_print_count -= 1
+
+        # Modify the question
         question = castigator(question, response)
         retries += 1
 
