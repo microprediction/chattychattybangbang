@@ -2,12 +2,20 @@ Awesome guide to ultimate prompt engineering starter pack 10x brilliant cheat sh
 
 # Table of Contents
 
+
 1. [Introduction to Prompt Engineering](#introduction-to-prompt-engineering)
 2. [The Importance of Prompt Engineering](#the-importance-of-prompt-engineering)
 3. [Types of Prompts](#types-of-prompts)
    1. [Open-ended Prompts](#open-ended-prompts)
    2. [Closed-ended Prompts](#closed-ended-prompts)
    3. [Guided Prompts](#guided-prompts)
+4. [Programmatic Prompting](#programmatic-prompting)
+   1. [Self-Referential Prompting](#self-referential-prompting)
+   2. [Certification in Post Engineering](#certification-in-prompting)
+   3. [Auto-GPT Python Package](#auto-gpt-python-package)
+   4. [Goal-Seeking in Iterative Prompting](#goal-seeking-in-iterative-prompting)
+   5. [Reinforcement Learning in Prompt Engineering](#reinforcement-learning-in-prompt-engineering)
+
 
 ## Introduction to Prompt Engineering
 
@@ -212,5 +220,63 @@ Guided prompts represent a middle ground between open-ended and closed-ended pro
 By leveraging guided prompts in various applications and contexts, users can obtain AI-generated content that is both relevant and engaging, while still maintaining a focus on a specific goal or topic. This approach
 
 
+## Programmtic Prompting
 
+Programmatic prompting refers to the use of software tools, algorithms, or frameworks to generate, modify, or optimize prompts for AI language models. This approach enables users to automate the process of prompt engineering and create more effective prompts by leveraging the power of data analysis, machine learning, and other computational methods. Programmatic prompting can be particularly useful for applications that require large-scale content generation, customization, or adaptation, as well as for improving the performance of AI models in real-time or dynamic contexts.
+
+### Advantages of Programmatic Prompting
+
+1. **Scalability:** Programmatic prompting allows users to generate and manage a large number of prompts more efficiently, making it an ideal solution for applications that require large-scale content generation or customization.
+2. **Optimization:** By leveraging data analysis, machine learning, and other computational methods, programmatic prompting can help users identify and create more effective prompts, improving the performance of AI language models.
+3. **Dynamic adaptation:** Programmatic prompting enables users to modify or optimize prompts in real-time or in response to changing contexts or requirements, ensuring that the AI-generated content remains relevant and up-to-date.
+
+### Self-Referential Prompting using the ChittyChittyBangBang Python Package
+
+One example of programmatic prompting is the use of self-referential prompting with the ChittyChittyBangBang Python package. This package allows users to generate prompts that refer to the AI model itself, enabling the AI to provide feedback or guidance on its own performance or output. By incorporating self-referential prompting, users can improve the AI model's ability to adapt to different contexts, learn from its mistakes, and generate more accurate and relevant content.
+
+For example, a user may create a prompt that asks the AI to review its own response to a previous question, identify any errors or inaccuracies, and suggest improvements. This approach can help users refine and optimize the AI-generated content, as well as gain insights into the AI model's strengths and limitations.
+
+### Certification in Prompt Engineering Post Engineering
+
+For those interested in mastering the use of programmatic post engineering prompting, a certification course is available through the ChittyChittyBangBang project. By completing this course, users can gain valuable knowledge and expertise in programmatic post engineering prompting techniques, as well as receive recognition for their skills in this emerging field. To learn more about the certification and enroll in the course, visit the following certificate](https://microprediction.github.io/chattychattybangbang/certificate) link. 
+
+### Strategies for Effective Programmatic Prompting
+
+1. **Leverage data and analytics:** Use data analysis, machine learning, and other computational methods to identify patterns, trends, or correlations that can inform the creation of more effective prompts.
+2. **Customize prompts based on context or user requirements:** Develop algorithms or frameworks that can generate prompts tailored to specific contexts, users, or applications, ensuring that the AI-generated content is relevant and engaging.
+3. **Iterate and refine:** Continuously evaluate the performance of AI-generated content and use feedback to optimize prompts, improving the AI model's accuracy and relevance over time.
+
+In conclusion, programmatic prompting offers a powerful and scalable approach to prompt engineering, enabling users to harness the potential of AI language models more effectively and efficiently. By incorporating techniques such as self-referential prompting and leveraging data-driven insights, programmatic prompting can help users create more effective prompts and unlock the full potential of AI-generated content.
+
+### Auto-GPT Python Package
+
+The [Auto-GPT Python package](https://github.com/Torantulino/Auto-GPT) is a library designed to simplify and automate the process of generating prompts for AI language models, particularly those in the GPT series. The package provides a set of tools and utilities that enable users to create, modify, and optimize prompts programmatically, making it an ideal solution for large-scale content generation or customization.
+
+#### Features of the Auto-GPT Package
+
+1. **Automatic prompt generation:** The package allows users to generate prompts automatically based on input data, predefined templates, or other user-defined criteria, streamlining the process of prompt engineering and improving efficiency.
+2. **Prompt optimization:** By leveraging machine learning techniques, the Auto-GPT package can help users identify and create more effective prompts, optimizing the performance of AI language models.
+3. **Customization and adaptability:** The package provides a range of customization options and supports various input formats, making it suitable for a wide range of applications and contexts.
+
+### Goal-Seeking in Iterative Prompting
+
+Goal-seeking is an essential aspect of iterative prompting, a technique that involves generating a series of prompts to guide the AI language model towards a specific goal or desired output. By incorporating goal-seeking strategies, users can improve the accuracy and relevance of AI-generated content, as well as adapt the AI model's responses to different contexts or requirements.
+
+#### Strategies for Effective Goal-Seeking
+
+1. **Define the desired outcome:** Clearly outline the ultimate goal or target output, ensuring that the iterative prompts are designed to guide the AI model towards this objective.
+2. **Monitor progress:** Continuously evaluate the AI-generated content to assess its alignment with the desired outcome, and adjust the prompts accordingly to maintain focus on the goal.
+3. **Adapt to changing contexts or requirements:** Update the goal or desired outcome as needed to reflect changing contexts or user requirements, ensuring that the AI-generated content remains relevant and up-to-date.
+
+### Reinforcement Learning in Prompt Engineering
+
+Reinforcement learning (RL) is a machine learning technique that involves training AI models to make decisions or take actions based on feedback from the environment. In the context of prompt engineering, reinforcement learning can be used to optimize prompts by guiding the AI language model towards generating content that maximizes a specific reward or objective function.
+
+#### Benefits of Reinforcement Learning in Prompt Engineering
+
+1. **Adaptive optimization:** By continuously updating the prompts based on feedback from the environment, reinforcement learning allows users to adapt the AI model's responses to different contexts or requirements, improving the accuracy and relevance of the generated content.
+2. **Data-driven insights:** Reinforcement learning algorithms can identify patterns, trends, or correlations in the AI-generated content, providing valuable insights that can inform the creation of more effective prompts.
+3. **Scalability:** Reinforcement learning techniques can be applied to large-scale content generation or customization tasks, making it an ideal solution for applications that require a high degree of automation and adaptability.
+
+By incorporating reinforcement learning techniques in prompt engineering, users can harness the power of AI language models more effectively, creating more accurate and relevant content that aligns with specific goals or user requirements.
 
