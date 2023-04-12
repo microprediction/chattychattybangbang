@@ -5,7 +5,7 @@ I am offering a one day course for those looking to become certified in Prompt E
 
 - How to ask ChatGPT what Prompt Engineering is
 - Cutting and pasting the answer into a Linked-In post, adding emojis and “10x” claims.
-- Creating content for your own Awesome Prompt Engineering website, cheat sheets and ultimate starter packs.
+- Creating content for your own Awesome Prompt Engineering website like [this one](https://microprediction.github.io/chattychattybangbang/awesome), cheat sheets and ultimate starter packs.
 - Using ChatGPT to administer your own Prompt Engineering one day course. 
 
 This field is guaranteed to grow exponentially. So [sign up](
