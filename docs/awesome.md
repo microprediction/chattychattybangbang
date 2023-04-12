@@ -10,12 +10,17 @@ Awesome guide to ultimate prompt engineering starter pack 10x brilliant cheat sh
    2. [Closed-ended Prompts](#closed-ended-prompts)
    3. [Guided Prompts](#guided-prompts)
 4. [Programmatic Prompting](#programmatic-prompting)
-   1. [Self-Referential Prompting](#self-referential-prompting)
-   2. [Certification in Post Engineering](#certification-in-prompting)
-   3. [Auto-GPT Python Package](#auto-gpt-python-package)
-   4. [Goal-Seeking in Iterative Prompting](#goal-seeking-in-iterative-prompting)
-   5. [Reinforcement Learning in Prompt Engineering](#reinforcement-learning-in-prompt-engineering)
-
+   1. [Introduction](#introduction)
+   2. [Advantages of Programmatic Prompting](#advantages)
+   3. [Self-Referential Prompting using the ChittyChittyBangBang Python Package](#self-referential)
+   4. [Certification in Prompt Engineering Post Engineering](#certification)
+   5. [Strategies for Effective Programmatic Prompting](#strategies)
+   6. [Auto-GPT Python Package](#auto-gpt)
+       - [Features of the Auto-GPT Package](#features)
+   7. [Goal-Seeking in Iterative Prompting](#goal-seeking)
+       - [Strategies for Effective Goal-Seeking](#goal-strategies)
+   8. [Reinforcement Learning in Prompt Engineering](#reinforcement-learning)
+       - [Benefits of Reinforcement Learning in Prompt Engineering](#benefits)
 
 ## Introduction to Prompt Engineering
 
