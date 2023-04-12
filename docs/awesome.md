@@ -1,7 +1,4 @@
-Awesome guide to ultimate prompt engineering starter pack 10x brilliant cheat sheet. 
-
-# Table of Contents
-
+# Prompt Engineering Table of Contents
 
 1. [Introduction to Prompt Engineering](#introduction-to-prompt-engineering)
 2. [The Importance of Prompt Engineering](#the-importance-of-prompt-engineering)
