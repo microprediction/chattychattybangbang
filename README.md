@@ -1,4 +1,4 @@
-# chattychattybangbang
+# chattychattybangbang [docs](https://microprediction.github.io/chattychattybangbang)
 Utilities for using chatgpt more reliably
 
 
