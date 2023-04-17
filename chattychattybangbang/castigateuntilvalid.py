@@ -121,7 +121,11 @@ def castigate_until_numeric_dict_with_known_keys_iteratively(valid_keys:STR_KEYS
     printed_question = False
     while keys_left:
         next_keys, keys_left = _choose_next_items(keys_left, count=n_batch, randomize=randomize)
-        appended_question = question + ','.join([str(k).lower() for k in next_keys ])
+        # {"IBM": 0, "DELL": 1}
+        additional_example_instruction_head = ' So the output you give me should look like the following :'
+        additional_example = ', '.join( [ f'"{key}": 0' for key in next_keys ])
+        additional_example_instruction_tail = ' except that the zeros should be replaced by values as instructed.'
+        appended_question = question + additional_example_instruction_head + additional_example +additional_example_instruction_tail
         if echo and not printed_question:
             print('Question :' + appended_question)
             printed_question = True
