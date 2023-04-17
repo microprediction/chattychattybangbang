@@ -1,4 +1,4 @@
-# chattychattybangbang
+# chattychattybangbang [docs](https://microprediction.github.io/chattychattybangbang)
 Utilities for using chatgpt more reliably
 
 
@@ -31,3 +31,6 @@ See [examples](https://github.com/microprediction/chattychattybangbang/tree/main
 
 ### Article
 See [Reliably getting answers out of chatgpt](https://medium.com/@mike.roweprediger/reliably-getting-answers-out-of-chatgpt-by-forcing-it-to-qa-itself-feb1f56782b9) on medium. Thanks to Michael Rowe. 
+
+### One day certification course
+Just [kidding](https://microprediction.github.io/chattychattybangbang/certificate) but check out our [awesome 10x prompting guide](https://microprediction.github.io/chattychattybangbang/awesome).
