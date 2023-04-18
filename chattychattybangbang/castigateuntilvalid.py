@@ -27,7 +27,7 @@ def castigate_until_valid(question:str, validator=None, castigator=None,
         result = re.search(pattern, input_string, re.DOTALL)
         if result:
             extracted_string = result.group(1)
-            return extracted_string
+            return '{' + extracted_string + '}'
         else:
             return ""
 
