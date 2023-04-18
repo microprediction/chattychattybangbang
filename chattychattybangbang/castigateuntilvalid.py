@@ -21,6 +21,16 @@ def castigate_until_valid(question:str, validator=None, castigator=None,
     :param echo:          Print the responses to stdout
     :return:
     """
+    def extract_dict_str(input_string):
+        import re
+        pattern = r'\{(.*?)\}'
+        result = re.search(pattern, input_string)
+        if result:
+            extracted_string = result.group(1)
+            return extracted_string
+        else:
+            return ""
+
     if validator is None:
         validator = default_validator
     if castigator is None:
@@ -30,8 +40,9 @@ def castigate_until_valid(question:str, validator=None, castigator=None,
     failure_print_count = 5
 
     while retries < max_retries:
-        response = ask_gpt(question)
-        parsed_response = json_or_none(response)
+        raw_response = ask_gpt(question)
+        trimmed_response = extract_dict_str(raw_response)
+        parsed_response = json_or_none(trimmed_response)
 
         if parsed_response and validator(parsed_response):
             break
@@ -40,8 +51,9 @@ def castigate_until_valid(question:str, validator=None, castigator=None,
         if echo and failure_print_count>0:
             print('      ... example question: ')
             print(question)
-            print('      ... example of failed response to it')
-            print(response)
+            print('      ... example of failed response >> ')
+            print(raw_response)
+            print('       ... << ')
             failure_print_count -= 1
 
         # Modify the question
