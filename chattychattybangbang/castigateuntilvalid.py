@@ -1,7 +1,7 @@
 from chattychattybangbang.openaicredentials import set_credentials
 from chattychattybangbang.validators import default_validator, validate_numeric_dict
 from chattychattybangbang.validators import validate_numeric_dict_with_known_keys, STR_KEYS_TYPE, is_in
-from chattychattybangbang.jsonutil import json_or_none
+from chattychattybangbang.jsonutil import json_or_none, extract_dict_str
 from chattychattybangbang.castigators import default_castigator
 from chattychattybangbang.openutil import ask_gpt
 import random
@@ -21,15 +21,7 @@ def castigate_until_valid(question:str, validator=None, castigator=None,
     :param echo:          Print the responses to stdout
     :return:
     """
-    def extract_dict_str(input_string):
-        import re
-        pattern = r'\{(.*?)\}'
-        result = re.search(pattern, input_string, re.DOTALL)
-        if result:
-            extracted_string = result.group(1)
-            return '{' + extracted_string + '}'
-        else:
-            return ""
+
 
     if validator is None:
         validator = default_validator
