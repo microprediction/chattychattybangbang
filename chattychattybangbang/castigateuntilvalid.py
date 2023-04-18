@@ -119,18 +119,20 @@ def castigate_until_numeric_dict_with_known_keys_iteratively(valid_keys:STR_KEYS
     all_scores = dict()
     keys_left = [ k for k in list(valid_keys)]
     printed_question = False
+    import time
     while keys_left:
+        time.sleep(0.01)
         next_keys, keys_left = _choose_next_items(keys_left, count=n_batch, randomize=randomize)
-        # {"IBM": 0, "DELL": 1}
-        additional_example_instruction_head = ' So the output you give me should look like the following :'
-        additional_example = ', '.join( [ f'"{key}": 0' for key in next_keys ])
-        additional_example_instruction_tail = ' except that the zeros should be replaced by values as instructed.'
-        appended_question = question + additional_example_instruction_head + additional_example +additional_example_instruction_tail
+        instruct_keys = 'Here is the list: '+ ','.join(next_keys)+' .'
+        instruct_head = ' So the output you give me should look like the following :'
+        instruct_example = '{'+ ','.join( [ f'"{key}": 0' for key in next_keys ] )+ '}'
+        instruct_tail = ' except that the zeros should be replaced by values as instructed.'
+        instruct = question + instruct_keys + instruct_head + instruct_example + instruct_tail
         if echo and not printed_question:
-            print('Question :' + appended_question)
+            print('Question :' + instruct)
             printed_question = True
         scores_dict = castigate_until_numeric_dict_with_known_keys(valid_keys=next_keys,
-                                                         question=appended_question,
+                                                         question=instruct,
                                                          castigator=castigator,
                                                          case_insensitive=case_insensitive,
                                                                    max_retries=max_retries, echo=echo
