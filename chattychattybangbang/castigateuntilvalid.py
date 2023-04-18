@@ -24,7 +24,7 @@ def castigate_until_valid(question:str, validator=None, castigator=None,
     def extract_dict_str(input_string):
         import re
         pattern = r'\{(.*?)\}'
-        result = re.search(pattern, input_string)
+        result = re.search(pattern, input_string, re.DOTALL)
         if result:
             extracted_string = result.group(1)
             return extracted_string

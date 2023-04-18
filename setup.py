@@ -7,7 +7,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="chattychattybangbang",
-    version="0.0.20",
+    version="0.0.21",
     description="chat utilities",
     long_description=README,
     long_description_content_type="text/markdown",
