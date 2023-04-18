@@ -57,7 +57,7 @@ def castigate_until_valid(question:str, validator=None, castigator=None,
             failure_print_count -= 1
 
         # Modify the question
-        question = castigator(question, response)
+        question = castigator(question, raw_response)
         retries += 1
 
     if retries == max_retries:
