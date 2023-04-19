@@ -80,9 +80,11 @@ def castigate_until_numeric_dict_with_known_keys(valid_keys: STR_KEYS_TYPE,
         return validate_numeric_dict_with_known_keys(parsed_response=parsed_response,
                                                      valid_keys=valid_keys,
                                                      case_insensitive=case_insensitive)
-    return castigate_until_valid(question=question, castigator=castigator,
+
+    d = castigate_until_valid(question=question, castigator=castigator,
                                  validator=_validator, max_retries=max_retries,
                                  echo=echo)
+    return dict([(k,float(v)) for k,v in d.items()])
 
 
 def castigate_until_numeric_dict_with_known_keys_iteratively(valid_keys:STR_KEYS_TYPE,
@@ -106,8 +108,14 @@ def castigate_until_numeric_dict_with_known_keys_iteratively(valid_keys:STR_KEYS
     :return:
     """
 
-    def _sort_dict_descending(d: dict, reverse:bool) -> dict:
-        return dict(sorted(d.items(), key=lambda item: item[1], reverse=reverse))
+    def _sort_dict_descending(d: dict, reverse: bool) -> dict:
+        try:
+            return dict(sorted(d.items(), key=lambda item: item[1], reverse=reverse))
+        except TypeError:
+            try:
+                return dict(sorted(d.items(), key=lambda item: float(item[1]), reverse=reverse))
+            except TypeError:
+                return dict(sorted(d.items(), key=lambda item: str(item[1]), reverse=reverse))
 
     def _choose_next_items(items: list, count: int, randomize: bool) -> (List,List):
         # If the list has fewer items than requested, return the entire list
