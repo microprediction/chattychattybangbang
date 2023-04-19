@@ -8,7 +8,7 @@ def castigate_dict_text(question, response):
     choices = [f"Please reformat the response to the question '{question}' as a dictionary.",
                "I did not mean for you to answer with a dict whose every value is zero. That was just an example.",
                "Please provide the response as a dictionary, as requested, and provide nothing else in the response",
-               r"I am going to repeat the question as this answer is not correct. Here is the question again +{question}"]
+               f"I am going to repeat the question as this answer is not correct. Here is the question again +{question}"]
 
     try:
         d = json_or_none(extract_dict_str(response))
