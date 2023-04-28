@@ -282,3 +282,28 @@ Reinforcement learning (RL) is a machine learning technique that involves traini
 
 By incorporating reinforcement learning techniques in prompt engineering, users can harness the power of AI language models more effectively, creating more accurate and relevant content that aligns with specific goals or user requirements.
 
+## Advanced techniques 
+
+Some skilled individuals in this area have explored and employed advanced tools and techniques for language models, such as templates, extra memory, and custom decoders. These features have been incorporated into projects like Langchain, VectorDB technologies, txtai/txtchat, token-level constrained text generation, sequence-level constrained text generation, and more. These tools have even formed the basis for successful companies in the AI sector. However, despite the financial backing and attention given to large language models (LLMs), effectively prompting them remains a challenge. The good news is, it doesn't have to be this way.
+
+1. **Prompt Alternation (Implemented)**
+This technique involves switching between two input prompts for each generated token. For instance, if we want 20 tokens of output alternating between "I like apple" and "I like bananas," the input prompt could be [I like apple:I like bananas], with each generated token following the previous input prompts.
+
+2. **Prompt Editing**
+Similar to Prompt Alternation, but with added control over the number of tokens generated before switching to another input prompt.
+
+3. **Prompt Weighting**
+In an LLM front-end, users should be able to use parentheses "()" to increase the model's attention to enclosed words, and square brackets "[]" to decrease it. Multiple modifiers should also be combinable for more precise control.
+
+4. **Prompt Blending (Implemented)**
+This technique involves averaging or computing the weighted average of the embeddings of multiple tokens in a prompt. This allows the model to answer questions like "What is the definition of {apple|orange}," where {apple|orange} represents the mathematical average in the embedding space of those two words.
+
+5. **Prompt Fusion (Advanced Prompt Blending)**
+Similar to Prompt Blending, but with added flexibility. Users can use a
+
+
+
+
+
+
+
