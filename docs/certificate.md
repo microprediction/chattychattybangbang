@@ -8,8 +8,7 @@ I am offering a one day course for those looking to become certified in Prompt E
 - Creating content for your own Awesome Prompt Engineering website like [this one](https://microprediction.github.io/chattychattybangbang/awesome), cheat sheets and ultimate starter packs.
 - Using ChatGPT to administer your own Prompt Engineering Post Engineering one day course. 
 
-This field is guaranteed to grow exponentially. So [sign up](
-https://github.com/microprediction/chattychattybangbang) 
+This field is guaranteed to grow exponentially. So [follow me on medium](https://medium.com/p/94e7e3821ad5) because I can see you need to be influenced.  
 
 #promptengineering 
 
